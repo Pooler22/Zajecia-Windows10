@@ -5,6 +5,8 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,7 +27,21 @@ namespace App2
         public MainPage()
         {
             this.InitializeComponent();
+           // SystemNavigationManager.GetForCurrentView().BackRequested += MainPage_BackRequested;
         }
+
+
+        //protected async override void OnNavigatedTo(NavigationEventArgs e)
+        //{
+        //    SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+        //    base.OnNavigatedTo(e);
+        //}
+
+        private void MainPage_BackRequested(object sender, BackRequestedEventArgs e)
+        {
+            HamburgerButton.Content = "&#xE764;";
+        }
+
 
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)
         {
@@ -81,6 +97,16 @@ namespace App2
             Window.Current.Activate();
 
 
+        }
+
+        private async void StackPanel_PointerPressed_1(object sender, PointerRoutedEventArgs e)
+        {
+            //http://stackoverflow.com/questions/33666575/isolated-storage-for-uwp
+            //http://stackoverflow.com/questions/21202953/saving-a-richtext-document-to-the-temp-folder-in-a-windows-store-app
+            var tempFolder = ApplicationData.Current.TemporaryFolder;
+            var tempFileCreate = await tempFolder.CreateFileAsync("TempFileName.tmp", CreationCollisionOption.ReplaceExisting);
+            tempFolder.
+            var tempFileOpen = await tempFolder.GetFileAsync("TempFileName.tmp");
         }
     }
 }

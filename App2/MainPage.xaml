@@ -104,11 +104,16 @@
                     </ListBoxItem>
                     <ListBoxItem Name="FavoritesListBoxItem3" >
                         <StackPanel Orientation="Horizontal" PointerPressed="FavoritesListBoxItem3_PointerPressed">
-                            <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="36" Text="&#xE754;" />
+                            <TextBlock  FontFamily="Segoe MDL2 Assets" FontSize="36" Text="&#xE754;" />
                             <TextBlock Text="Text 5" FontSize="24" Margin="20,0,0,0" />
                         </StackPanel>
                     </ListBoxItem>
-                    
+                    <ListBoxItem Name="FavoritesListBoxItem4" >
+                        <StackPanel Orientation="Horizontal" PointerPressed="StackPanel_PointerPressed_1">
+                            <TextBlock  FontFamily="Segoe MDL2 Assets" FontSize="36" Text="&#xE754;" />
+                            <TextBlock Text="Text 5" FontSize="24" Margin="20,0,0,0" />
+                        </StackPanel>
+                    </ListBoxItem>
 
                 </ListBox>
             </SplitView.Pane>
