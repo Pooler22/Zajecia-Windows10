@@ -1,0 +1,26 @@
+﻿<Page
+    x:Class="Week3.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Week3"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <Ellipse PointerPressed="Ellipse_PointerPressed1" Fill="Green" Width="30" Height="30"></Ellipse>
+                <Ellipse PointerPressed="Ellipse_PointerPressed2" Fill="Yellow" Width="30" Height="30"></Ellipse>
+                <Ellipse PointerPressed="Ellipse_PointerPressed3" Fill="Red" Width="30" Height="30"></Ellipse>
+            </StackPanel>
+            
+            <TextBlock Name="test1" />
+            <Button Name="butonik1" Click="butonik_Click1" Visibility="Collapsed">Open folder</Button>
+            <TextBlock Name="test2" Visibility="Collapsed"/>
+            <Button Name="butonik2" Click="butonik_Click2" Visibility="Collapsed">Save File</Button>
+            <TextBlock Name="test3" />
+            <Button Name="butonik3" Click="butonik_Click3">Read File</Button>
+        </StackPanel>
+    </Grid>
+</Page>

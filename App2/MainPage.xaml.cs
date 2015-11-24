@@ -103,10 +103,25 @@ namespace App2
         {
             //http://stackoverflow.com/questions/33666575/isolated-storage-for-uwp
             //http://stackoverflow.com/questions/21202953/saving-a-richtext-document-to-the-temp-folder-in-a-windows-store-app
+            //http://www.c-sharpcorner.com/UploadFile/6d1860/how-to-implement-local-storage-in-universal-windows-apps/
             var tempFolder = ApplicationData.Current.TemporaryFolder;
             var tempFileCreate = await tempFolder.CreateFileAsync("TempFileName.tmp", CreationCollisionOption.ReplaceExisting);
-            tempFolder.
             var tempFileOpen = await tempFolder.GetFileAsync("TempFileName.tmp");
+
+            
+            var folder = ApplicationData.Current.LocalFolder;
+            var newFolder = await folder.CreateFolderAsync("NewFolder", CreationCollisionOption.OpenIfExists);
+
+            //save
+            var textFile = await newFolder.CreateFileAsync("text.txt");
+            await FileIO.WriteTextAsync(textFile, "Hello World!");
+
+            //get data
+            var files = await newFolder.GetFilesAsync();
+            var desiredFile = files.FirstOrDefault(x => x.Name == "text.txt");
+
+            var textContent = await FileIO.ReadTextAsync(desiredFile);
+            //textB.Text = textContent;
         }
     }
 }
